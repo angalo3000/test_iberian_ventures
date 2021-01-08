@@ -18,7 +18,7 @@ use Maatwebsite\Excel\Facades\Excel;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('company.index');
 });
 
 Auth::routes([
