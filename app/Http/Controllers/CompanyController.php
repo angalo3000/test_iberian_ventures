@@ -33,10 +33,14 @@ class CompanyController extends Controller
     {
         $this->create_excel($id);
 
-        $from_name = 'Ang';
+        // $from_name = 'Ang';
+        // $from_email = 'angalo3000@gmail.com';
+        // $to_name = 'Test';
+        // $to_email= 'angalo3000@gmail.com';
+        $from_name = 'Angelo Cenidoza';
         $from_email = 'angalo3000@gmail.com';
-        $to_name = 'Test';
-        $to_email= 'angalo3000@gmail.com';
+        $to_name = 'Luis';
+        $to_email= 'luis@ibventur.es';
         $data = array("name" => 'ww', "paydate" => 'dd');
         $filename = 'payslip/payslip.pdf';
         $excel = Storage::path('company_data.xlsx');
