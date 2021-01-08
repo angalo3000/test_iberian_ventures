@@ -44,9 +44,9 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            {{-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li> --}}
+                            </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -81,4 +81,13 @@
         </main>
     </div>
 </body>
+{{-- <script>
+    function test(params, into) {
+        document.getElementById(into).value = Number(params).toLocaleString();
+    }
+
+    function number_only(params, into) {
+        document.getElementById(into).value = params.replace(/[^0-9]/g, ''); 
+    }
+</script> --}}
 </html>
