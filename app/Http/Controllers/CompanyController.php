@@ -11,7 +11,7 @@ use Session;
 use Redirect;
 use Illuminate\Support\Facades\Cache;
 
-use App\Exports\UsersExport;
+use App\Exports\CompanyExport;
 use App\Http\Requests\CompanyRequest;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -26,7 +26,7 @@ class CompanyController extends Controller
     public function create_excel($id)
     {
         $name = 'company_data.xlsx';
-        return Excel::store(new UsersExport($id), $name);
+        return Excel::store(new CompanyExport($id), $name);
     }
     
     public function excel($id)

@@ -2,12 +2,17 @@
 
 @section('content')
 <div class="container" id="crudApp">
-    
-    <div v-for="user in companies">
-        @{{ user.name }}
+    <div class="col-md-2">
+        <a href="/list/print">
+            <button type="submit" class="form-control btn btn-success">
+                {{ __('Excel') }}
+            </button>
+        </a>
     </div>
     <div class="row justify-content-center">
-        <table class="table table-bordered table_striped">
+        <h3>List of all Sectors recorded</h3>
+        <br>
+        <table class="table table-bordered table_striped table-hover">
             <thead>
                 <tr>
                     <th>Sector</th>

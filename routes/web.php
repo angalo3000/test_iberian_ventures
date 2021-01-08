@@ -6,6 +6,7 @@ use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Cache;
 
 use App\Exports\UsersExport;
+use App\Exports\CompanyReportExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 /*
@@ -37,12 +38,12 @@ Route::get('list', function () {
             ->leftJoin('results', 'companies.id', '=', 'results.result_id')
             ->get();
     });
-    // DB::table('companies')
-    //             ->select('*')
-    //             ->leftJoin('results', 'companies.id', '=', 'results.result_id')
-    //             ->get();
     return view('list.index', compact('records'));
 });
+Route::get('list/print', function () {
+    return Excel::download(new CompanyReportExport, 'companies.xlsx');
+});
+
 Route::get('company/excel/{id}', [CompanyController::class, 'excel'])->name('company.excel');
 Route::get('company/', [CompanyController::class, 'index'])->name('company.index');
 Route::post('company/', [CompanyController::class, 'store'])->name('company.store');
