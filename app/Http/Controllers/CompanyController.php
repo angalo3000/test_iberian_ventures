@@ -9,6 +9,7 @@ use Storage;
 use Mail;
 use Session;
 use Redirect;
+use Illuminate\Support\Facades\Cache;
 
 use App\Exports\UsersExport;
 use App\Http\Requests\CompanyRequest;
@@ -132,6 +133,7 @@ class CompanyController extends Controller
         } else {
             Session::flash('error', 'Thanks for sending information about your company. Unfortunately, it seems that this company does not meet “Iberian 3 Ventures” investment criteria. Regardless, we will take a second look in detail and send you an email.');
         }
+        Cache::forget('records');
 
         return Redirect::route('company.index');
     }

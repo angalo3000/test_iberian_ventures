@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 
+use Illuminate\Support\Facades\Cache;
+
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -29,7 +31,17 @@ Auth::routes([
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('list', function () {
-    return view('list.index');
+    $records = Cache::remember('records', 100000, function () {
+        return DB::table('companies')
+            ->select('*')
+            ->leftJoin('results', 'companies.id', '=', 'results.result_id')
+            ->get();
+    });
+    // DB::table('companies')
+    //             ->select('*')
+    //             ->leftJoin('results', 'companies.id', '=', 'results.result_id')
+    //             ->get();
+    return view('list.index', compact('records'));
 });
 Route::get('company/excel/{id}', [CompanyController::class, 'excel'])->name('company.excel');
 Route::get('company/', [CompanyController::class, 'index'])->name('company.index');
