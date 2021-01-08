@@ -44,7 +44,7 @@ class CompanyController extends Controller
         Mail::send('company.mail', $data, function ($message) use ($to_name, $to_email, $from_email, $from_name, $excel) {
             $message->from($from_email, $from_name);
             $message->to($to_email, $to_name);
-            $message->subject('Payslip');
+            $message->subject('Company Report');
             $message->attach($excel);
         });
     }
