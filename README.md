@@ -2,6 +2,8 @@
 
 This is just a test project for a job application.
 
+Clone the project in the \***\* master \*\*** branch.
+
 After cloning the project to your machine, follow this steps to run in this project:
 
 -   Go to your terminal and direct to the project and type \***\* composer install \*\*** .
